@@ -2,11 +2,5 @@
 return [
     'site_name' => 'Portfolio',
 
-    'db'        => [
-                    'type'      => 'mysql',
-                    'host'      => 'localhost',
-                    'user'      => 'root',
-                    'password'  => 'v',
-                    'database'  => 'portfolio'
-                    ],
+    'db'        => require_once ('database/database.php'),
 ];

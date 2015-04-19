@@ -17,5 +17,12 @@ class Query extends mysqlDB{
         parent::__construct();
     }
 
+    public function Select($object, $table){
+        $query = "SELECT $object FROM `$table`";
+        $result = mysql_query($query);
+        $rows = mysql_fetch_object($result);
+        var_dump($rows);
+        echo $rows->id;
 
+    }
 }

@@ -41,6 +41,8 @@ class App
     {
         self::Register();
         self::setSetting($setting);
+        $router = new Route();
+        $router->add();
     }
 
     public static function Register() {

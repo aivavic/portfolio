@@ -4,7 +4,9 @@ namespace portfolio\system\database;
 
 
 use portfolio\system\App;
+
 use portfolio\system\errors\DBException;
+
 
 class mysqlDB extends MainDB {
     public function __construct()
@@ -17,14 +19,21 @@ class mysqlDB extends MainDB {
         try {
             $connect = mysql_connect($hostname, $user, $password);
             if(!$connect)
-                throw new DBException("Возникла очень серьезная ошибка", 42);
+                throw new DBException("Невозможно соединиться с базой данных", 42);
         }
         catch (DBException $e) {
             echo "Исключение ".$e->getCode().": ".$e->getMessage()."<br />".
                 " в ".$e->getFile().", строка ".$e->getLine()."<br />";
         }
 
-        mysql_select_db($database);
+        try {
+            if(!mysql_select_db($database))
+                throw new DBException("База данных недоступна", 43);
+        }
+        catch (DBException $e) {
+            echo "Исключение ".$e->getCode().": ".$e->getMessage()."<br />".
+                " в ".$e->getFile().", строка ".$e->getLine()."<br />";
+        }
     }
 
 

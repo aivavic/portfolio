@@ -13,4 +13,4 @@ $error = BASE . '/system/errors/SettingException.php';
 
 require_once $app;
 App::init($setting, $error);
-new Query();
+
