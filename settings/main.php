@@ -3,9 +3,10 @@ return [
     'site_name' => 'Portfolio',
 
     'db'        => [
+                    'type'      => 'mysql',
                     'host'      => 'localhost',
                     'user'      => 'root',
-                    'password'  => 'password',
+                    'password'  => 'v',
                     'database'  => 'portfolio'
                     ],
 ];
